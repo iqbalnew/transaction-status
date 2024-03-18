@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+import "template_core.proto";
+import "template_db.proto";
+
+package template.service.v1;
+option go_package = "./pb";
+
+// #region General Request and Reuseable
+
+message Pagination {
+    int32 limit = 1;
+    int32 page = 2;
+    string sort = 3;
+    Direction dir = 4;
+    uint64 total_pages = 5;
+    uint64 total_rows = 6;
+    string filter = 7;
+};
+ 
+message GeneralBodyResponse {
+    string process_id = 1;
+    bool error = 2;
+    uint32 code = 3;
+    string message = 4;
+};
+
+// #endregion
+
+// #region Utils Request & Response
+
+message HealthCheckResponse {
+    string message = 1;
+};
+
+message UserAuthority {
+    bool isMaker = 1;
+    bool isChecker = 2;
+    bool isSigner = 3;
+    bool isReleaser = 4;
+};
+
+// #endregion
+
+// #region Templates Request & Response
+
+message GetAllTemplatesRequest {
+    string process_id = 1;
+    Pagination pagination = 2;
+}
+
+message GetAllTemplatesResponse {
+    bool error = 1;
+    uint32 code = 2;
+    string message = 3;
+    repeated Templates data = 4;
+    Pagination pagination = 5;
+}
+
+message GetTemplateDetailRequest {
+    string process_id = 1;
+    uint64 template_id = 2;
+}
+
+message GetTemplateDetailResponse {
+    bool error = 1;
+    uint32 code = 2;
+    string message = 3;
+    Templates data = 4;
+}
+
+message SaveTemplateRequest {
+    string process_id = 1;
+    Templates template = 2;
+}
+
+message UpdateTemplateRequest {
+    string process_id = 1;
+    Templates template = 2;
+}
+
+message DeleteTemplateRequest {
+    string process_id = 1;
+    uint64 template_id = 2;
+}
+
+// #endregion

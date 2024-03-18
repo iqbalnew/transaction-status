@@ -1,0 +1,487 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Template GRPC Service",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "TemplateService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/template/data": {
+      "post": {
+        "summary": "Get template data",
+        "description": "This API for get template data",
+        "operationId": "TemplateService_GetAllTemplates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAllTemplatesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetAllTemplatesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Templates"
+        ]
+      }
+    },
+    "/api/template/data-detail": {
+      "post": {
+        "summary": "Get template data detail",
+        "description": "This API for get template data detail by id",
+        "operationId": "TemplateService_GetTemplateDetail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetTemplateDetailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetTemplateDetailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Templates"
+        ]
+      }
+    },
+    "/api/template/delete-data": {
+      "post": {
+        "summary": "Delete template data",
+        "description": "This API for delete template data",
+        "operationId": "TemplateService_DeleteTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GeneralBodyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteTemplateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Templates"
+        ]
+      }
+    },
+    "/api/template/health": {
+      "get": {
+        "summary": "Health Check",
+        "description": "This API for check server's health",
+        "operationId": "TemplateService_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Utility"
+        ],
+        "security": []
+      }
+    },
+    "/api/template/save-data": {
+      "post": {
+        "summary": "Save template data",
+        "description": "This API for save template data",
+        "operationId": "TemplateService_SaveTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GeneralBodyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SaveTemplateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Templates"
+        ]
+      }
+    },
+    "/api/template/update-data": {
+      "post": {
+        "summary": "Update template data",
+        "description": "This API for update template data",
+        "operationId": "TemplateService_UpdateTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetTemplateDetailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateTemplateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Templates"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "servicev1Status": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_STATUS",
+        "PENDING_MAKER_CONFIRMATION",
+        "ON_CHECKER",
+        "ON_SIGNER",
+        "ON_RELEASER",
+        "SUCCESS",
+        "FAILED",
+        "RETUR",
+        "WAITING_SCHEDULE",
+        "REJECTED",
+        "WAITING_PROCESS",
+        "ON_PROGRESS",
+        "PROCEED_NEXT_PROCESS",
+        "APPROVED",
+        "ACTIVE",
+        "INACTIVE",
+        "EXPIRED"
+      ],
+      "default": "UNKNOWN_STATUS"
+    },
+    "v1DeleteTemplateRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "templateId": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1Direction": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_DIRECTION",
+        "DESC",
+        "ASC"
+      ],
+      "default": "UNKNOWN_DIRECTION"
+    },
+    "v1GeneralBodyResponse": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetAllTemplatesRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1Pagination"
+        }
+      }
+    },
+    "v1GetAllTemplatesResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Templates"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1Pagination"
+        }
+      }
+    },
+    "v1GetTemplateDetailRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "templateId": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1GetTemplateDetailResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1Templates"
+        }
+      }
+    },
+    "v1HealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Pagination": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "dir": {
+          "$ref": "#/definitions/v1Direction"
+        },
+        "totalPages": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "totalRows": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "filter": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SaveTemplateRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "template": {
+          "$ref": "#/definitions/v1Templates"
+        }
+      }
+    },
+    "v1Templates": {
+      "type": "object",
+      "properties": {
+        "templateId": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "processId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "statusId": {
+          "$ref": "#/definitions/servicev1Status"
+        },
+        "statusDescription": {
+          "type": "string"
+        },
+        "rawUserData": {
+          "type": "string",
+          "format": "byte"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedDt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1UpdateTemplateRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "template": {
+          "$ref": "#/definitions/v1Templates"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "description": "Authentication token, prefixed by Bearer: Bearer \u003ctoken\u003e",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ]
+}

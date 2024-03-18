@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "template_core.proto";
+
+package template.service.v1;
+option go_package = "./pb";
+
+message Templates {
+    uint64 template_id = 1;
+    string process_id = 2;
+    uint64 company_id = 3;
+    string company_name = 4;
+    Status status_id = 5;
+    string status_description = 6;
+    bytes raw_user_data = 7;
+    string created_by = 101;
+    google.protobuf.Timestamp created_dt = 102;
+    string updated_by = 103;
+    google.protobuf.Timestamp updated_dt = 104;
+};
