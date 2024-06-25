@@ -45,6 +45,7 @@ var logger *servicelogger.AddonsLogrus
 var database *db.Db
 
 func init() {
+
 	appConfig = config.InitConfig()
 	logger = servicelogger.New(&servicelogger.LoggerConfig{
 		ServiceName:   appConfig.AppName,
@@ -256,7 +257,7 @@ func grpcServer(port int) error {
 
 	s = grpc.NewServer(unaryInterceptorOpt, streamInterceptorOpt)
 
-	pb.RegisterTemplateServiceServer(s, apiServer)
+	pb.RegisterTransactionStatusServiceServer(s, apiServer)
 
 	grpc_health_v1.RegisterHealthServer(s, health.NewServer())
 
@@ -292,8 +293,8 @@ func httpGatewayServer(port int, grpcEndpoint string) error {
 		runtime.WithForwardResponseOption(httpHandler.HttpResponseModifier),
 	)
 
-	client := pb.NewTemplateServiceClient(conn)
-	err = pb.RegisterTemplateServiceHandlerClient(ctx, rmux, client)
+	client := pb.NewTransactionStatusServiceClient(conn)
+	err = pb.RegisterTransactionStatusServiceHandlerClient(ctx, rmux, client)
 	if err != nil {
 		return err
 	}

@@ -4,9 +4,9 @@ import "google/api/annotations.proto";
 import "google/protobuf/Empty.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
-import "template_payload.proto";
+import "transaction_status_payload.proto";
 
-package template.service.v1;
+package transaction_status.service.v1;
 option go_package = "./pb";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
@@ -32,7 +32,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
     }
 };
 
-service TemplateService {
+service TransactionStatusService {
 
     // #region Utility
     

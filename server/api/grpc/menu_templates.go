@@ -83,7 +83,7 @@ func (s *Server) SaveTemplate(ctx context.Context, req *pb.SaveTemplateRequest) 
 		return nil, marshalErr
 	}
 
-	req.GetTemplate().RawUserData = userDataJson
+	req.GetTemplate().RawUserData = string(userDataJson)
 
 	templateData, getTemplateErr := s.provider.InsertTemplate(ctx, req.GetProcessId(), req.GetTemplate())
 	if getTemplateErr != nil {

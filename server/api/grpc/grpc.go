@@ -17,7 +17,7 @@ type Server struct {
 	svcConn     *svc.ServiceConnection
 	grpcHandler *apigrpchandler.GrpcHandler
 
-	pb.TemplateServiceServer
+	pb.TransactionStatusServiceServer
 }
 
 func New(

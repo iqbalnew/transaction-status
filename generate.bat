@@ -1,4 +1,4 @@
-SET api_name=template
+SET api_name=transaction_status
 SET swagger=".\www\swagger.json"
 
 if EXIST %swagger% (

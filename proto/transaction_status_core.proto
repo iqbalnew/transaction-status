@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package template.service.v1;
+package transaction_status.service.v1;
 
 option go_package = "./pb";
 

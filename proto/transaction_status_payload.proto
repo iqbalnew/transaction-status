@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-import "template_core.proto";
-import "template_db.proto";
+import "transaction_status_core.proto";
+import "transaction_status_db.proto";
 
-package template.service.v1;
+package transaction_status.service.v1;
 option go_package = "./pb";
 
 // #region General Request and Reuseable
