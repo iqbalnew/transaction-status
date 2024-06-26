@@ -112,5 +112,18 @@ service TransactionStatusService {
         };
     };
 
+    // "this is for register job for queue to rabbit
+    rpc RegisterJobTransactionPending(RegisterJobTransactionPendingeRequest) returns (RegisterJobTransactionPendingResponse) {
+        option (google.api.http) = {
+            post: "/api/transaction-status"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            tags: ["transaction-status"]
+            summary: "register transaction pending"
+            description: "this is for register job for queue to rabbit"
+        };
+    };
+
     // #endregion
 }

@@ -729,6 +729,116 @@ func (x *DeleteTemplateRequest) GetTemplateId() uint64 {
 	return 0
 }
 
+type RegisterJobTransactionPendingeRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+}
+
+func (x *RegisterJobTransactionPendingeRequest) Reset() {
+	*x = RegisterJobTransactionPendingeRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transaction_status_payload_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RegisterJobTransactionPendingeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterJobTransactionPendingeRequest) ProtoMessage() {}
+
+func (x *RegisterJobTransactionPendingeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_status_payload_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterJobTransactionPendingeRequest.ProtoReflect.Descriptor instead.
+func (*RegisterJobTransactionPendingeRequest) Descriptor() ([]byte, []int) {
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *RegisterJobTransactionPendingeRequest) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type RegisterJobTransactionPendingResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Error   bool   `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
+	Code    uint32 `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *RegisterJobTransactionPendingResponse) Reset() {
+	*x = RegisterJobTransactionPendingResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transaction_status_payload_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RegisterJobTransactionPendingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterJobTransactionPendingResponse) ProtoMessage() {}
+
+func (x *RegisterJobTransactionPendingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_status_payload_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterJobTransactionPendingResponse.ProtoReflect.Descriptor instead.
+func (*RegisterJobTransactionPendingResponse) Descriptor() ([]byte, []int) {
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *RegisterJobTransactionPendingResponse) GetError() bool {
+	if x != nil {
+		return x.Error
+	}
+	return false
+}
+
+func (x *RegisterJobTransactionPendingResponse) GetCode() uint32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *RegisterJobTransactionPendingResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_transaction_status_payload_proto protoreflect.FileDescriptor
 
 var file_transaction_status_payload_proto_rawDesc = []byte{
@@ -832,8 +942,19 @@ var file_transaction_status_payload_proto_rawDesc = []byte{
 	0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x09, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x74,
 	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04,
-	0x52, 0x0a, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x49, 0x64, 0x42, 0x06, 0x5a, 0x04,
-	0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x0a, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x49, 0x64, 0x22, 0x39, 0x0a, 0x25,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61, 0x6e, 0x73,
+	0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x6b, 0x0a, 0x25, 0x52, 0x65, 0x67, 0x69, 0x73,
+	0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f,
+	0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
+	0x73, 0x61, 0x67, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -848,30 +969,32 @@ func file_transaction_status_payload_proto_rawDescGZIP() []byte {
 	return file_transaction_status_payload_proto_rawDescData
 }
 
-var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_transaction_status_payload_proto_goTypes = []interface{}{
-	(*Pagination)(nil),                // 0: transaction_status.service.v1.Pagination
-	(*GeneralBodyResponse)(nil),       // 1: transaction_status.service.v1.GeneralBodyResponse
-	(*HealthCheckResponse)(nil),       // 2: transaction_status.service.v1.HealthCheckResponse
-	(*UserAuthority)(nil),             // 3: transaction_status.service.v1.UserAuthority
-	(*GetAllTemplatesRequest)(nil),    // 4: transaction_status.service.v1.GetAllTemplatesRequest
-	(*GetAllTemplatesResponse)(nil),   // 5: transaction_status.service.v1.GetAllTemplatesResponse
-	(*GetTemplateDetailRequest)(nil),  // 6: transaction_status.service.v1.GetTemplateDetailRequest
-	(*GetTemplateDetailResponse)(nil), // 7: transaction_status.service.v1.GetTemplateDetailResponse
-	(*SaveTemplateRequest)(nil),       // 8: transaction_status.service.v1.SaveTemplateRequest
-	(*UpdateTemplateRequest)(nil),     // 9: transaction_status.service.v1.UpdateTemplateRequest
-	(*DeleteTemplateRequest)(nil),     // 10: transaction_status.service.v1.DeleteTemplateRequest
-	(Direction)(0),                    // 11: transaction_status.service.v1.Direction
-	(*Templates)(nil),                 // 12: transaction_status.service.v1.Templates
+	(*Pagination)(nil),                            // 0: transaction_status.service.v1.Pagination
+	(*GeneralBodyResponse)(nil),                   // 1: transaction_status.service.v1.GeneralBodyResponse
+	(*HealthCheckResponse)(nil),                   // 2: transaction_status.service.v1.HealthCheckResponse
+	(*UserAuthority)(nil),                         // 3: transaction_status.service.v1.UserAuthority
+	(*GetAllTemplatesRequest)(nil),                // 4: transaction_status.service.v1.GetAllTemplatesRequest
+	(*GetAllTemplatesResponse)(nil),               // 5: transaction_status.service.v1.GetAllTemplatesResponse
+	(*GetTemplateDetailRequest)(nil),              // 6: transaction_status.service.v1.GetTemplateDetailRequest
+	(*GetTemplateDetailResponse)(nil),             // 7: transaction_status.service.v1.GetTemplateDetailResponse
+	(*SaveTemplateRequest)(nil),                   // 8: transaction_status.service.v1.SaveTemplateRequest
+	(*UpdateTemplateRequest)(nil),                 // 9: transaction_status.service.v1.UpdateTemplateRequest
+	(*DeleteTemplateRequest)(nil),                 // 10: transaction_status.service.v1.DeleteTemplateRequest
+	(*RegisterJobTransactionPendingeRequest)(nil), // 11: transaction_status.service.v1.RegisterJobTransactionPendingeRequest
+	(*RegisterJobTransactionPendingResponse)(nil), // 12: transaction_status.service.v1.RegisterJobTransactionPendingResponse
+	(Direction)(0),                                // 13: transaction_status.service.v1.Direction
+	(*Templates)(nil),                             // 14: transaction_status.service.v1.Templates
 }
 var file_transaction_status_payload_proto_depIdxs = []int32{
-	11, // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
+	13, // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
 	0,  // 1: transaction_status.service.v1.GetAllTemplatesRequest.pagination:type_name -> transaction_status.service.v1.Pagination
-	12, // 2: transaction_status.service.v1.GetAllTemplatesResponse.data:type_name -> transaction_status.service.v1.Templates
+	14, // 2: transaction_status.service.v1.GetAllTemplatesResponse.data:type_name -> transaction_status.service.v1.Templates
 	0,  // 3: transaction_status.service.v1.GetAllTemplatesResponse.pagination:type_name -> transaction_status.service.v1.Pagination
-	12, // 4: transaction_status.service.v1.GetTemplateDetailResponse.data:type_name -> transaction_status.service.v1.Templates
-	12, // 5: transaction_status.service.v1.SaveTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
-	12, // 6: transaction_status.service.v1.UpdateTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
+	14, // 4: transaction_status.service.v1.GetTemplateDetailResponse.data:type_name -> transaction_status.service.v1.Templates
+	14, // 5: transaction_status.service.v1.SaveTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
+	14, // 6: transaction_status.service.v1.UpdateTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
 	7,  // [7:7] is the sub-list for method output_type
 	7,  // [7:7] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name
@@ -1019,6 +1142,30 @@ func file_transaction_status_payload_proto_init() {
 				return nil
 			}
 		}
+		file_transaction_status_payload_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RegisterJobTransactionPendingeRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_transaction_status_payload_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RegisterJobTransactionPendingResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1026,7 +1173,7 @@ func file_transaction_status_payload_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_transaction_status_payload_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

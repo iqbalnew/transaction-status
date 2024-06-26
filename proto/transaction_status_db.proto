@@ -24,3 +24,40 @@ message Templates {
     string updated_by = 103;
     google.protobuf.Timestamp updated_dt = 104;
 };
+
+
+// TODO NAMING
+// JobTransactionStatusPending
+// JobTransactionPending
+message JobTransactionStatusPending {
+
+    option (gorm.opts) = {
+        ormable: true,
+        table: "job_transaction_pending",
+    };
+    uint64 id = 1;
+    uint64 task_id = 2;
+    statusInquiryJob status = 3;
+    // string request = 4;
+    // string respond = 5;
+
+    google.protobuf.Timestamp created_at = 103;
+    google.protobuf.Timestamp updated_at = 104;
+};
+
+// is view table
+// TransactionPendingSurrounding
+//
+message TransactionPending {
+
+    option (gorm.opts) = {
+        ormable: true,
+        table: "transaction_pending",
+    };
+
+    uint64 id = 1;
+    uint64 task_id = 2;
+    string type = 3;
+    string status = 4;
+    google.protobuf.Timestamp updated_at = 104;
+}

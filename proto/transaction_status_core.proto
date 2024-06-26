@@ -38,3 +38,9 @@ enum Status{
     INACTIVE = 15;
     EXPIRED = 16;
 };
+
+enum statusInquiryJob {
+    NEW = 0;
+    IN_QUEUE = 1;
+    DONE = 2;
+}

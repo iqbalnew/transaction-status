@@ -80,3 +80,9 @@ func (this *UpdateTemplateRequest) Validate() error {
 func (this *DeleteTemplateRequest) Validate() error {
 	return nil
 }
+func (this *RegisterJobTransactionPendingeRequest) Validate() error {
+	return nil
+}
+func (this *RegisterJobTransactionPendingResponse) Validate() error {
+	return nil
+}

@@ -20,12 +20,13 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TransactionStatusService_HealthCheck_FullMethodName       = "/transaction_status.service.v1.TransactionStatusService/HealthCheck"
-	TransactionStatusService_GetAllTemplates_FullMethodName   = "/transaction_status.service.v1.TransactionStatusService/GetAllTemplates"
-	TransactionStatusService_GetTemplateDetail_FullMethodName = "/transaction_status.service.v1.TransactionStatusService/GetTemplateDetail"
-	TransactionStatusService_SaveTemplate_FullMethodName      = "/transaction_status.service.v1.TransactionStatusService/SaveTemplate"
-	TransactionStatusService_UpdateTemplate_FullMethodName    = "/transaction_status.service.v1.TransactionStatusService/UpdateTemplate"
-	TransactionStatusService_DeleteTemplate_FullMethodName    = "/transaction_status.service.v1.TransactionStatusService/DeleteTemplate"
+	TransactionStatusService_HealthCheck_FullMethodName                   = "/transaction_status.service.v1.TransactionStatusService/HealthCheck"
+	TransactionStatusService_GetAllTemplates_FullMethodName               = "/transaction_status.service.v1.TransactionStatusService/GetAllTemplates"
+	TransactionStatusService_GetTemplateDetail_FullMethodName             = "/transaction_status.service.v1.TransactionStatusService/GetTemplateDetail"
+	TransactionStatusService_SaveTemplate_FullMethodName                  = "/transaction_status.service.v1.TransactionStatusService/SaveTemplate"
+	TransactionStatusService_UpdateTemplate_FullMethodName                = "/transaction_status.service.v1.TransactionStatusService/UpdateTemplate"
+	TransactionStatusService_DeleteTemplate_FullMethodName                = "/transaction_status.service.v1.TransactionStatusService/DeleteTemplate"
+	TransactionStatusService_RegisterJobTransactionPending_FullMethodName = "/transaction_status.service.v1.TransactionStatusService/RegisterJobTransactionPending"
 )
 
 // TransactionStatusServiceClient is the client API for TransactionStatusService service.
@@ -38,6 +39,8 @@ type TransactionStatusServiceClient interface {
 	SaveTemplate(ctx context.Context, in *SaveTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error)
 	UpdateTemplate(ctx context.Context, in *UpdateTemplateRequest, opts ...grpc.CallOption) (*GetTemplateDetailResponse, error)
 	DeleteTemplate(ctx context.Context, in *DeleteTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error)
+	// "this is for register job for queue to rabbit
+	RegisterJobTransactionPending(ctx context.Context, in *RegisterJobTransactionPendingeRequest, opts ...grpc.CallOption) (*RegisterJobTransactionPendingResponse, error)
 }
 
 type transactionStatusServiceClient struct {
@@ -102,6 +105,15 @@ func (c *transactionStatusServiceClient) DeleteTemplate(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *transactionStatusServiceClient) RegisterJobTransactionPending(ctx context.Context, in *RegisterJobTransactionPendingeRequest, opts ...grpc.CallOption) (*RegisterJobTransactionPendingResponse, error) {
+	out := new(RegisterJobTransactionPendingResponse)
+	err := c.cc.Invoke(ctx, TransactionStatusService_RegisterJobTransactionPending_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TransactionStatusServiceServer is the server API for TransactionStatusService service.
 // All implementations must embed UnimplementedTransactionStatusServiceServer
 // for forward compatibility
@@ -112,6 +124,8 @@ type TransactionStatusServiceServer interface {
 	SaveTemplate(context.Context, *SaveTemplateRequest) (*GeneralBodyResponse, error)
 	UpdateTemplate(context.Context, *UpdateTemplateRequest) (*GetTemplateDetailResponse, error)
 	DeleteTemplate(context.Context, *DeleteTemplateRequest) (*GeneralBodyResponse, error)
+	// "this is for register job for queue to rabbit
+	RegisterJobTransactionPending(context.Context, *RegisterJobTransactionPendingeRequest) (*RegisterJobTransactionPendingResponse, error)
 	mustEmbedUnimplementedTransactionStatusServiceServer()
 }
 
@@ -136,6 +150,9 @@ func (UnimplementedTransactionStatusServiceServer) UpdateTemplate(context.Contex
 }
 func (UnimplementedTransactionStatusServiceServer) DeleteTemplate(context.Context, *DeleteTemplateRequest) (*GeneralBodyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTemplate not implemented")
+}
+func (UnimplementedTransactionStatusServiceServer) RegisterJobTransactionPending(context.Context, *RegisterJobTransactionPendingeRequest) (*RegisterJobTransactionPendingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterJobTransactionPending not implemented")
 }
 func (UnimplementedTransactionStatusServiceServer) mustEmbedUnimplementedTransactionStatusServiceServer() {
 }
@@ -259,6 +276,24 @@ func _TransactionStatusService_DeleteTemplate_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TransactionStatusService_RegisterJobTransactionPending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterJobTransactionPendingeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionStatusServiceServer).RegisterJobTransactionPending(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransactionStatusService_RegisterJobTransactionPending_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionStatusServiceServer).RegisterJobTransactionPending(ctx, req.(*RegisterJobTransactionPendingeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TransactionStatusService_ServiceDesc is the grpc.ServiceDesc for TransactionStatusService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -289,6 +324,10 @@ var TransactionStatusService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteTemplate",
 			Handler:    _TransactionStatusService_DeleteTemplate_Handler,
+		},
+		{
+			MethodName: "RegisterJobTransactionPending",
+			Handler:    _TransactionStatusService_RegisterJobTransactionPending_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -4,10 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	pb "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
 	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	"github.com/sirupsen/logrus"
 	"go.elastic.co/apm/v2"
 )
 
@@ -142,3 +144,52 @@ func (s *Server) DeleteTemplate(ctx context.Context, req *pb.DeleteTemplateReque
 		Message: fmt.Sprintf("Delete template data success, total_affected: %d", rowsAffected),
 	}, nil
 }
+
+func (s *Server) RegisterJobTransactionPending(ctx context.Context, req *pb.RegisterJobTransactionPendingeRequest) (*pb.RegisterJobTransactionPendingResponse, error) {
+
+	result, _, err := s.provider.GetAllTransactionPending(
+		ctx,
+		&pb.Pagination{
+			Limit: 100,
+			Page:  1,
+			Sort:  "updated_at",
+			Dir:   pb.Direction_ASC,
+		},
+	)
+	if err != nil {
+		logrus.Errorln("failedGet Data")
+		return nil, err
+	}
+
+	for i, v := range result {
+
+		s.logger.Infoln(i, " loop")
+
+		job := &pb.JobTransactionStatusPending{
+			TaskId: v.TaskId,
+			Status: pb.StatusInquiryJob_NEW,
+		}
+
+		_, err := s.provider.InsertJobTransactionPending(ctx, "0", job)
+
+		if err == nil {
+			log.Println("Success insert data")
+		} else {
+			s.logger.Infoln(i, " error: ", err)
+		}
+
+	}
+
+	// just insert the data
+	return &pb.RegisterJobTransactionPendingResponse{
+		Error:   false,
+		Code:    200,
+		Message: "Success Register New Job Pending",
+	}, nil
+}
+
+func ListingDataPending() {
+
+}
+
+//

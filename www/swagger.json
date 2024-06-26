@@ -210,6 +210,40 @@
           "Templates"
         ]
       }
+    },
+    "/api/transaction-status": {
+      "post": {
+        "summary": "register transaction pending",
+        "description": "this is for register job for queue to rabbit",
+        "operationId": "TransactionStatusService_RegisterJobTransactionPending",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RegisterJobTransactionPendingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RegisterJobTransactionPendingeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "transaction-status"
+        ]
+      }
     }
   },
   "definitions": {
@@ -401,6 +435,29 @@
           "format": "uint64"
         },
         "filter": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RegisterJobTransactionPendingResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RegisterJobTransactionPendingeRequest": {
+      "type": "object",
+      "properties": {
+        "key": {
           "type": "string"
         }
       }

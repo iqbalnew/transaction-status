@@ -84,4 +84,14 @@ message DeleteTemplateRequest {
     uint64 template_id = 2;
 }
 
+message RegisterJobTransactionPendingeRequest {
+    string key = 1;
+}
+
+message RegisterJobTransactionPendingResponse {
+    bool error = 1;
+    uint32 code = 2;
+    string message = 3;
+}
+
 // #endregion
