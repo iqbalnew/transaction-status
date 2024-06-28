@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	redismock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/redis/mock"
+	redismock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/redis/mock"
 
 	"github.com/alicebob/miniredis/v2"
 	"github.com/go-redis/redis/v8"

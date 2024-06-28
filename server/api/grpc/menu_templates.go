@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	pb "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	pb "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 	"github.com/sirupsen/logrus"
 	"go.elastic.co/apm/v2"
 )
@@ -168,6 +168,7 @@ func (s *Server) RegisterJobTransactionPending(ctx context.Context, req *pb.Regi
 		job := &pb.JobTransactionStatusPending{
 			TaskId: v.TaskId,
 			Status: pb.StatusInquiryJob_NEW,
+			Type:   v.GetType(),
 		}
 
 		_, err := s.provider.InsertJobTransactionPending(ctx, "0", job)

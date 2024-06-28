@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	ftpwrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/ftp/wrapper"
+	ftpwrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/ftp/wrapper"
 
 	"github.com/jlaffaye/ftp"
 )

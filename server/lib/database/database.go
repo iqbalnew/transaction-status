@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database/wrapper"
+	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database/wrapper"
 	_ "github.com/lib/pq"
 )
 

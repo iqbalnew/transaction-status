@@ -43,4 +43,5 @@ enum statusInquiryJob {
     NEW = 0;
     IN_QUEUE = 1;
     DONE = 2;
+    IN_PROGRESS = 3;
 }

@@ -123,6 +123,7 @@ type JobTransactionStatusPendingORM struct {
 	Id        uint64
 	Status    int32
 	TaskId    uint64
+	Type      string
 	UpdatedAt *time.Time
 }
 
@@ -144,6 +145,7 @@ func (m *JobTransactionStatusPending) ToORM(ctx context.Context) (JobTransaction
 	to.Id = m.Id
 	to.TaskId = m.TaskId
 	to.Status = int32(m.Status)
+	to.Type = m.Type
 	if m.CreatedAt != nil {
 		t := m.CreatedAt.AsTime()
 		to.CreatedAt = &t
@@ -171,6 +173,7 @@ func (m *JobTransactionStatusPendingORM) ToPB(ctx context.Context) (JobTransacti
 	to.Id = m.Id
 	to.TaskId = m.TaskId
 	to.Status = StatusInquiryJob(m.Status)
+	to.Type = m.Type
 	if m.CreatedAt != nil {
 		to.CreatedAt = timestamppb.New(*m.CreatedAt)
 	}
@@ -766,6 +769,10 @@ func DefaultApplyFieldMaskJobTransactionStatusPending(ctx context.Context, patch
 		}
 		if f == prefix+"Status" {
 			patchee.Status = patcher.Status
+			continue
+		}
+		if f == prefix+"Type" {
+			patchee.Type = patcher.Type
 			continue
 		}
 		if !updatedCreatedAt && strings.HasPrefix(f, prefix+"CreatedAt.") {

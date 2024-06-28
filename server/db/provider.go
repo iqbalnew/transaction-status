@@ -1,7 +1,7 @@
 package db
 
 import (
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database"
 )
 
 type Provider struct {

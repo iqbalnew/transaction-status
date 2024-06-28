@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	ftpmock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/ftp/mock"
-	ftpwrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/ftp/wrapper"
+	ftpmock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/ftp/mock"
+	ftpwrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/ftp/wrapper"
 
 	"github.com/stretchr/testify/suite"
 )

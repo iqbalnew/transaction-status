@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"slices"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 	"go.elastic.co/apm"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

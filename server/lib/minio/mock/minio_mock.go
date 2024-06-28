@@ -5,7 +5,7 @@ import (
 	"errors"
 	"io"
 
-	miniowrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/minio/wrapper"
+	miniowrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/minio/wrapper"
 	"github.com/minio/minio-go/v7"
 )
 

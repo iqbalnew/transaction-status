@@ -3,7 +3,7 @@ package interceptors
 import (
 	"fmt"
 
-	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/service-logger"
+	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/service-logger"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"go.elastic.co/apm/module/apmgrpc/v2"
 	"google.golang.org/grpc"
@@ -40,6 +40,7 @@ func (i *Interceptor) UnaryInterceptors(
 func (i *Interceptor) StreamInterceptors(
 	authI *AuthInterceptor,
 ) grpc.StreamServerInterceptor {
+
 	return grpc_middleware.ChainStreamServer(
 		authI.Stream(),
 	)

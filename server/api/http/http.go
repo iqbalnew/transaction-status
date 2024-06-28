@@ -1,6 +1,6 @@
 package apihttp
 
-import servicelogger "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/service-logger"
+import servicelogger "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/service-logger"
 
 type HttpHandler struct {
 	Logger *servicelogger.AddonsLogrus

@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	databasemock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database/mock"
+	databasemock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database/mock"
 
 	"github.com/stretchr/testify/suite"
 )

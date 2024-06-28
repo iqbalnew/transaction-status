@@ -38,6 +38,7 @@ message JobTransactionStatusPending {
     uint64 id = 1;
     uint64 task_id = 2;
     statusInquiryJob status = 3;
+    string type = 4;
     // string request = 4;
     // string respond = 5;
 

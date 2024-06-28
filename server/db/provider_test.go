@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"testing"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/suite"
 )

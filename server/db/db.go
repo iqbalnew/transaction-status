@@ -5,11 +5,11 @@ import (
 	"strconv"
 	"time"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/config"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/constant"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database"
-	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database/wrapper"
-	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/service-logger"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/config"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/constant"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database"
+	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database/wrapper"
+	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/service-logger"
 )
 
 type Db struct {

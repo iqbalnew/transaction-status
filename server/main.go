@@ -16,18 +16,18 @@ import (
 	"fmt"
 	"net"
 
-	apigrpc "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/api/grpc"
-	apihttp "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/api/http"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/constant"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/db"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/interceptors"
-	pb "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
-	svc "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	apigrpc "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/api/grpc"
+	apihttp "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/api/http"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/constant"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/db"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/interceptors"
+	pb "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
+	svc "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 
-	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/service-logger"
+	servicelogger "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/service-logger"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/config"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/config"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/urfave/cli"
@@ -249,6 +249,23 @@ func grpcServer(port int) error {
 		return apiErr
 	}
 
+
+	kliringQueueName := utils.GetEnv("queue-status-kliring", "status-kliring-queue-local")
+	err = apiServer.SetupRabbitMQConn("rabbit-conn-publisher-kliring", kliringQueueName)
+	if err != nil {
+		logger.Errorln(err)
+		return err
+	}
+
+	swiftQueueName := utils.GetEnv("queue-status-swift", "status-swift-queue-local")
+	err = apiServer.SetupRabbitMQConn("rabbit-conn-publisher-swift", swiftQueueName)
+	if err != nil {
+		logger.Errorln(err)
+		return err
+	}
+
+	go apiServer.JobPending()
+
 	interceptor := interceptors.NewInterceptor(logger)
 
 	authInterceptor := interceptors.NewAuthInterceptor(appConfig.ApiServicePath, svcConn)
@@ -305,7 +322,7 @@ func httpGatewayServer(port int, grpcEndpoint string) error {
 
 	mux.HandleFunc("/api/template/docs/swagger.json", serveSwagger)
 	fs := http.FileServer(http.Dir(appConfig.SwaggerPath + "swagger-ui"))
-	mux.Handle("/api/template/docs/", http.StripPrefix("/api/template/docs/", fs))
+	mux.Handle("/api/transaction-status/docs/", http.StripPrefix("/api/transaction-status/docs/", fs))
 
 	// Start
 	logger.Printf("Starting JSON Gateway server on port %d...", port)

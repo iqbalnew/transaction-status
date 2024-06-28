@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 	"github.com/joho/godotenv"
 )
 
@@ -47,6 +47,14 @@ type Config struct {
 
 	NotificationModuleId   uint64 `config:"NOTIFICATION_MODULE_ID"`
 	NotificationModuleName string `config:"NOTIFICATION_MODULE_NAME"`
+
+	AmqpHost            string `config:"AMQP_HOST"`
+	AmqpUser            string `config:"AMQP_USER"`
+	AmqpPassword        string `config:"AMQP_PASSWORD"`
+	AmqpAutoReconnect   string `config:"AMQP_AUTO_RECONNECT"`
+	AmqpReconnectDelay  string `config:"AMQP_RECONNECT_DELAY"`
+	AmqpQueueConsumer   string `config:"AMQP_QUEUE_CONSUMER"`
+	AmqpQueueReportPush string `config:"AMQP_QUEUE_REPORT_PUSH"`
 
 	TimeLocation string `config:"TIME_LOCATION"`
 }

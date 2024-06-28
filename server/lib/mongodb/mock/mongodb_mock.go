@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	mongodbwrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/mongodb/wrapper"
+	mongodbwrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/mongodb/wrapper"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/integration/mtest"

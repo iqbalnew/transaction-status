@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 	"github.com/stretchr/testify/suite"
 )
 

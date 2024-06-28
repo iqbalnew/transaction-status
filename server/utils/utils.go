@@ -14,9 +14,9 @@ import (
 	"strings"
 	"time"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/constant"
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
-	authPB "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service/stubs/auth"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/constant"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
+	authPB "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service/stubs/auth"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"

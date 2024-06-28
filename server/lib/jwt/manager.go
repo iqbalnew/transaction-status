@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	customAES "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/aes"
-	authPb "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service/stubs/auth"
+	customAES "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/aes"
+	authPb "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service/stubs/auth"
 
-	svc "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service"
+	svc "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"

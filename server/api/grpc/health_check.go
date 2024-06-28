@@ -3,7 +3,7 @@ package apigrpc
 import (
 	"context"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 

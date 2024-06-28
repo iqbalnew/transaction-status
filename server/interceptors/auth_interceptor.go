@@ -4,9 +4,9 @@ import (
 	"context"
 	"strings"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/constant"
-	svc "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service"
-	authPB "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service/stubs/auth"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/constant"
+	svc "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service"
+	authPB "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service/stubs/auth"
 	"golang.org/x/exp/slices"
 
 	"google.golang.org/grpc"

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	authPB "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/service/stubs/auth"
+	authPB "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/service/stubs/auth"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	mongodbmock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/mongodb/mock"
+	mongodbmock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/mongodb/mock"
 
 	"github.com/stretchr/testify/suite"
 	"go.mongodb.org/mongo-driver/mongo/options"

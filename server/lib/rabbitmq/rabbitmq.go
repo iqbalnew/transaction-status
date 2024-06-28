@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	rabbitmqwrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/rabbitmq/wrapper"
+	rabbitmqwrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/rabbitmq/wrapper"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	pb "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
+	pb "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

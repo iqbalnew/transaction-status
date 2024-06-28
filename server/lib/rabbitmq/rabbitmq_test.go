@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	rabbitmqmock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/rabbitmq/mock"
-	rabbitmqwrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/rabbitmq/wrapper"
+	rabbitmqmock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/rabbitmq/mock"
+	rabbitmqwrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/rabbitmq/wrapper"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 	"github.com/stretchr/testify/suite"

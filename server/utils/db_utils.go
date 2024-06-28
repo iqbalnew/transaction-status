@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/pb"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/pb"
 )
 
 func GeneratePagination(sqlQuery string, sortBy string, direction pb.Direction, limit int32, page int32) string {

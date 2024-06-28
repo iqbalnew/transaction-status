@@ -86,3 +86,6 @@ func (this *RegisterJobTransactionPendingeRequest) Validate() error {
 func (this *RegisterJobTransactionPendingResponse) Validate() error {
 	return nil
 }
+func (this *MassageRabbitPublish) Validate() error {
+	return nil
+}

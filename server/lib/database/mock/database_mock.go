@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"errors"
 
-	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/database/wrapper"
+	databasewrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/database/wrapper"
 )
 
 type DatabaseMock struct {

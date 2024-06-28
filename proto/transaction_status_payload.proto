@@ -95,3 +95,7 @@ message RegisterJobTransactionPendingResponse {
 }
 
 // #endregion
+message massageRabbitPublish {
+    uint64 id_job = 1;
+    uint64 task_id = 2;
+}

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/utils"
+	"bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/utils"
 )
 
 func ReadFileCsv(byteContent []byte, csvFileOptions *CsvFileOptions) ([]map[string]interface{}, error) {

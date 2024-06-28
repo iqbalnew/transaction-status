@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	miniomock "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/minio/mock"
-	miniowrapper "bitbucket.bri.co.id/scm/bricams-addons/qcash-template-service/server/lib/minio/wrapper"
+	miniomock "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/minio/mock"
+	miniowrapper "bitbucket.bri.co.id/scm/bricams-addons/transaction-status/server/lib/minio/wrapper"
 
 	"github.com/stretchr/testify/suite"
 )

@@ -839,6 +839,62 @@ func (x *RegisterJobTransactionPendingResponse) GetMessage() string {
 	return ""
 }
 
+// #endregion
+type MassageRabbitPublish struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IdJob  uint64 `protobuf:"varint,1,opt,name=id_job,json=idJob,proto3" json:"id_job,omitempty"`
+	TaskId uint64 `protobuf:"varint,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+}
+
+func (x *MassageRabbitPublish) Reset() {
+	*x = MassageRabbitPublish{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transaction_status_payload_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MassageRabbitPublish) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MassageRabbitPublish) ProtoMessage() {}
+
+func (x *MassageRabbitPublish) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_status_payload_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MassageRabbitPublish.ProtoReflect.Descriptor instead.
+func (*MassageRabbitPublish) Descriptor() ([]byte, []int) {
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *MassageRabbitPublish) GetIdJob() uint64 {
+	if x != nil {
+		return x.IdJob
+	}
+	return 0
+}
+
+func (x *MassageRabbitPublish) GetTaskId() uint64 {
+	if x != nil {
+		return x.TaskId
+	}
+	return 0
+}
+
 var File_transaction_status_payload_proto protoreflect.FileDescriptor
 
 var file_transaction_status_payload_proto_rawDesc = []byte{
@@ -953,8 +1009,12 @@ var file_transaction_status_payload_proto_rawDesc = []byte{
 	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
 	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x61, 0x67, 0x65, 0x22, 0x46, 0x0a, 0x14, 0x6d, 0x61, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52,
+	0x61, 0x62, 0x62, 0x69, 0x74, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x73, 0x68, 0x12, 0x15, 0x0a, 0x06,
+	0x69, 0x64, 0x5f, 0x6a, 0x6f, 0x62, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x69, 0x64,
+	0x4a, 0x6f, 0x62, 0x12, 0x17, 0x0a, 0x07, 0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69, 0x64, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x06, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x42, 0x06, 0x5a, 0x04,
+	0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -969,7 +1029,7 @@ func file_transaction_status_payload_proto_rawDescGZIP() []byte {
 	return file_transaction_status_payload_proto_rawDescData
 }
 
-var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_transaction_status_payload_proto_goTypes = []interface{}{
 	(*Pagination)(nil),                            // 0: transaction_status.service.v1.Pagination
 	(*GeneralBodyResponse)(nil),                   // 1: transaction_status.service.v1.GeneralBodyResponse
@@ -984,17 +1044,18 @@ var file_transaction_status_payload_proto_goTypes = []interface{}{
 	(*DeleteTemplateRequest)(nil),                 // 10: transaction_status.service.v1.DeleteTemplateRequest
 	(*RegisterJobTransactionPendingeRequest)(nil), // 11: transaction_status.service.v1.RegisterJobTransactionPendingeRequest
 	(*RegisterJobTransactionPendingResponse)(nil), // 12: transaction_status.service.v1.RegisterJobTransactionPendingResponse
-	(Direction)(0),                                // 13: transaction_status.service.v1.Direction
-	(*Templates)(nil),                             // 14: transaction_status.service.v1.Templates
+	(*MassageRabbitPublish)(nil),                  // 13: transaction_status.service.v1.massageRabbitPublish
+	(Direction)(0),                                // 14: transaction_status.service.v1.Direction
+	(*Templates)(nil),                             // 15: transaction_status.service.v1.Templates
 }
 var file_transaction_status_payload_proto_depIdxs = []int32{
-	13, // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
+	14, // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
 	0,  // 1: transaction_status.service.v1.GetAllTemplatesRequest.pagination:type_name -> transaction_status.service.v1.Pagination
-	14, // 2: transaction_status.service.v1.GetAllTemplatesResponse.data:type_name -> transaction_status.service.v1.Templates
+	15, // 2: transaction_status.service.v1.GetAllTemplatesResponse.data:type_name -> transaction_status.service.v1.Templates
 	0,  // 3: transaction_status.service.v1.GetAllTemplatesResponse.pagination:type_name -> transaction_status.service.v1.Pagination
-	14, // 4: transaction_status.service.v1.GetTemplateDetailResponse.data:type_name -> transaction_status.service.v1.Templates
-	14, // 5: transaction_status.service.v1.SaveTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
-	14, // 6: transaction_status.service.v1.UpdateTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
+	15, // 4: transaction_status.service.v1.GetTemplateDetailResponse.data:type_name -> transaction_status.service.v1.Templates
+	15, // 5: transaction_status.service.v1.SaveTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
+	15, // 6: transaction_status.service.v1.UpdateTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
 	7,  // [7:7] is the sub-list for method output_type
 	7,  // [7:7] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name
@@ -1166,6 +1227,18 @@ func file_transaction_status_payload_proto_init() {
 				return nil
 			}
 		}
+		file_transaction_status_payload_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MassageRabbitPublish); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1173,7 +1246,7 @@ func file_transaction_status_payload_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_transaction_status_payload_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   13,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
