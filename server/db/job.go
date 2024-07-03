@@ -55,8 +55,8 @@ func (p *Provider) UpdateJobTransactionPending(ctx context.Context, jobData *pb.
 	defer span.End()
 
 	sqlQuery := `UPDATE transaction_pending.job_transaction_pending 
-                 SET task_id = $1, status = $2, updated_at = NOW() 
-                 WHERE id = $3`
+                 SET status = $1, updated_at = NOW() 
+                 WHERE id = $2`
 
 	sqlStmt, stmtErr := p.GetDbSql().SqlDb.Prepare(sqlQuery)
 	if stmtErr != nil {
@@ -68,7 +68,6 @@ func (p *Provider) UpdateJobTransactionPending(ctx context.Context, jobData *pb.
 	defer ctxCancel()
 
 	_, execErr := sqlStmt.ExecContext(ctxTimeout,
-		jobData.TaskId,
 		jobData.Status.String(),
 		jobData.Id,
 	)

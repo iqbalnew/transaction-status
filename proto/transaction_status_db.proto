@@ -7,28 +7,7 @@ import "transaction_status_core.proto";
 package transaction_status.service.v1;
 option go_package = "./pb";
 
-message Templates {
-    option (gorm.opts) = {
-        ormable: true,
-        table: "templates",
-    };
-    uint64 template_id = 1;
-    string process_id = 2;
-    uint64 company_id = 3;
-    string company_name = 4;
-    Status status_id = 5;
-    string status_description = 6;
-    string raw_user_data = 7;
-    string created_by = 101;
-    google.protobuf.Timestamp created_dt = 102;
-    string updated_by = 103;
-    google.protobuf.Timestamp updated_dt = 104;
-};
 
-
-// TODO NAMING
-// JobTransactionStatusPending
-// JobTransactionPending
 message JobTransactionStatusPending {
 
     option (gorm.opts) = {
@@ -46,9 +25,6 @@ message JobTransactionStatusPending {
     google.protobuf.Timestamp updated_at = 104;
 };
 
-// is view table
-// TransactionPendingSurrounding
-//
 message TransactionPending {
 
     option (gorm.opts) = {

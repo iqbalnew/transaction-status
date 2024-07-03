@@ -304,431 +304,6 @@ func (x *UserAuthority) GetIsReleaser() bool {
 	return false
 }
 
-type GetAllTemplatesRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ProcessId  string      `protobuf:"bytes,1,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
-	Pagination *Pagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
-}
-
-func (x *GetAllTemplatesRequest) Reset() {
-	*x = GetAllTemplatesRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetAllTemplatesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllTemplatesRequest) ProtoMessage() {}
-
-func (x *GetAllTemplatesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllTemplatesRequest.ProtoReflect.Descriptor instead.
-func (*GetAllTemplatesRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetAllTemplatesRequest) GetProcessId() string {
-	if x != nil {
-		return x.ProcessId
-	}
-	return ""
-}
-
-func (x *GetAllTemplatesRequest) GetPagination() *Pagination {
-	if x != nil {
-		return x.Pagination
-	}
-	return nil
-}
-
-type GetAllTemplatesResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Error      bool         `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
-	Code       uint32       `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
-	Message    string       `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
-	Data       []*Templates `protobuf:"bytes,4,rep,name=data,proto3" json:"data,omitempty"`
-	Pagination *Pagination  `protobuf:"bytes,5,opt,name=pagination,proto3" json:"pagination,omitempty"`
-}
-
-func (x *GetAllTemplatesResponse) Reset() {
-	*x = GetAllTemplatesResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetAllTemplatesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllTemplatesResponse) ProtoMessage() {}
-
-func (x *GetAllTemplatesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllTemplatesResponse.ProtoReflect.Descriptor instead.
-func (*GetAllTemplatesResponse) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetAllTemplatesResponse) GetError() bool {
-	if x != nil {
-		return x.Error
-	}
-	return false
-}
-
-func (x *GetAllTemplatesResponse) GetCode() uint32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
-}
-
-func (x *GetAllTemplatesResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
-func (x *GetAllTemplatesResponse) GetData() []*Templates {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
-
-func (x *GetAllTemplatesResponse) GetPagination() *Pagination {
-	if x != nil {
-		return x.Pagination
-	}
-	return nil
-}
-
-type GetTemplateDetailRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ProcessId  string `protobuf:"bytes,1,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
-	TemplateId uint64 `protobuf:"varint,2,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-}
-
-func (x *GetTemplateDetailRequest) Reset() {
-	*x = GetTemplateDetailRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetTemplateDetailRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateDetailRequest) ProtoMessage() {}
-
-func (x *GetTemplateDetailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateDetailRequest.ProtoReflect.Descriptor instead.
-func (*GetTemplateDetailRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetTemplateDetailRequest) GetProcessId() string {
-	if x != nil {
-		return x.ProcessId
-	}
-	return ""
-}
-
-func (x *GetTemplateDetailRequest) GetTemplateId() uint64 {
-	if x != nil {
-		return x.TemplateId
-	}
-	return 0
-}
-
-type GetTemplateDetailResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Error   bool       `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
-	Code    uint32     `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
-	Message string     `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
-	Data    *Templates `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
-}
-
-func (x *GetTemplateDetailResponse) Reset() {
-	*x = GetTemplateDetailResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetTemplateDetailResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateDetailResponse) ProtoMessage() {}
-
-func (x *GetTemplateDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateDetailResponse.ProtoReflect.Descriptor instead.
-func (*GetTemplateDetailResponse) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetTemplateDetailResponse) GetError() bool {
-	if x != nil {
-		return x.Error
-	}
-	return false
-}
-
-func (x *GetTemplateDetailResponse) GetCode() uint32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
-}
-
-func (x *GetTemplateDetailResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
-func (x *GetTemplateDetailResponse) GetData() *Templates {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
-
-type SaveTemplateRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ProcessId string     `protobuf:"bytes,1,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
-	Template  *Templates `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
-}
-
-func (x *SaveTemplateRequest) Reset() {
-	*x = SaveTemplateRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SaveTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SaveTemplateRequest) ProtoMessage() {}
-
-func (x *SaveTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SaveTemplateRequest.ProtoReflect.Descriptor instead.
-func (*SaveTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *SaveTemplateRequest) GetProcessId() string {
-	if x != nil {
-		return x.ProcessId
-	}
-	return ""
-}
-
-func (x *SaveTemplateRequest) GetTemplate() *Templates {
-	if x != nil {
-		return x.Template
-	}
-	return nil
-}
-
-type UpdateTemplateRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ProcessId string     `protobuf:"bytes,1,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
-	Template  *Templates `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
-}
-
-func (x *UpdateTemplateRequest) Reset() {
-	*x = UpdateTemplateRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateTemplateRequest) ProtoMessage() {}
-
-func (x *UpdateTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateTemplateRequest.ProtoReflect.Descriptor instead.
-func (*UpdateTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *UpdateTemplateRequest) GetProcessId() string {
-	if x != nil {
-		return x.ProcessId
-	}
-	return ""
-}
-
-func (x *UpdateTemplateRequest) GetTemplate() *Templates {
-	if x != nil {
-		return x.Template
-	}
-	return nil
-}
-
-type DeleteTemplateRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ProcessId  string `protobuf:"bytes,1,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
-	TemplateId uint64 `protobuf:"varint,2,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-}
-
-func (x *DeleteTemplateRequest) Reset() {
-	*x = DeleteTemplateRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteTemplateRequest) ProtoMessage() {}
-
-func (x *DeleteTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteTemplateRequest.ProtoReflect.Descriptor instead.
-func (*DeleteTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *DeleteTemplateRequest) GetProcessId() string {
-	if x != nil {
-		return x.ProcessId
-	}
-	return ""
-}
-
-func (x *DeleteTemplateRequest) GetTemplateId() uint64 {
-	if x != nil {
-		return x.TemplateId
-	}
-	return 0
-}
-
 type RegisterJobTransactionPendingeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -740,7 +315,7 @@ type RegisterJobTransactionPendingeRequest struct {
 func (x *RegisterJobTransactionPendingeRequest) Reset() {
 	*x = RegisterJobTransactionPendingeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[11]
+		mi := &file_transaction_status_payload_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -753,7 +328,7 @@ func (x *RegisterJobTransactionPendingeRequest) String() string {
 func (*RegisterJobTransactionPendingeRequest) ProtoMessage() {}
 
 func (x *RegisterJobTransactionPendingeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[11]
+	mi := &file_transaction_status_payload_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -766,7 +341,7 @@ func (x *RegisterJobTransactionPendingeRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterJobTransactionPendingeRequest.ProtoReflect.Descriptor instead.
 func (*RegisterJobTransactionPendingeRequest) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{11}
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *RegisterJobTransactionPendingeRequest) GetKey() string {
@@ -789,7 +364,7 @@ type RegisterJobTransactionPendingResponse struct {
 func (x *RegisterJobTransactionPendingResponse) Reset() {
 	*x = RegisterJobTransactionPendingResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[12]
+		mi := &file_transaction_status_payload_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -802,7 +377,7 @@ func (x *RegisterJobTransactionPendingResponse) String() string {
 func (*RegisterJobTransactionPendingResponse) ProtoMessage() {}
 
 func (x *RegisterJobTransactionPendingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[12]
+	mi := &file_transaction_status_payload_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -815,7 +390,7 @@ func (x *RegisterJobTransactionPendingResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterJobTransactionPendingResponse.ProtoReflect.Descriptor instead.
 func (*RegisterJobTransactionPendingResponse) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{12}
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *RegisterJobTransactionPendingResponse) GetError() bool {
@@ -852,7 +427,7 @@ type MassageRabbitPublish struct {
 func (x *MassageRabbitPublish) Reset() {
 	*x = MassageRabbitPublish{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_transaction_status_payload_proto_msgTypes[13]
+		mi := &file_transaction_status_payload_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -865,7 +440,7 @@ func (x *MassageRabbitPublish) String() string {
 func (*MassageRabbitPublish) ProtoMessage() {}
 
 func (x *MassageRabbitPublish) ProtoReflect() protoreflect.Message {
-	mi := &file_transaction_status_payload_proto_msgTypes[13]
+	mi := &file_transaction_status_payload_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -878,7 +453,7 @@ func (x *MassageRabbitPublish) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MassageRabbitPublish.ProtoReflect.Descriptor instead.
 func (*MassageRabbitPublish) Descriptor() ([]byte, []int) {
-	return file_transaction_status_payload_proto_rawDescGZIP(), []int{13}
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *MassageRabbitPublish) GetIdJob() uint64 {
@@ -893,6 +468,132 @@ func (x *MassageRabbitPublish) GetTaskId() uint64 {
 		return x.TaskId
 	}
 	return 0
+}
+
+type UpdatedJobTransactionStatusRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IdJob  uint64           `protobuf:"varint,1,opt,name=id_job,json=idJob,proto3" json:"id_job,omitempty"`
+	TaskId uint64           `protobuf:"varint,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	Status StatusInquiryJob `protobuf:"varint,3,opt,name=status,proto3,enum=transaction_status.service.v1.StatusInquiryJob" json:"status,omitempty"`
+}
+
+func (x *UpdatedJobTransactionStatusRequest) Reset() {
+	*x = UpdatedJobTransactionStatusRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transaction_status_payload_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdatedJobTransactionStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatedJobTransactionStatusRequest) ProtoMessage() {}
+
+func (x *UpdatedJobTransactionStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_status_payload_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatedJobTransactionStatusRequest.ProtoReflect.Descriptor instead.
+func (*UpdatedJobTransactionStatusRequest) Descriptor() ([]byte, []int) {
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *UpdatedJobTransactionStatusRequest) GetIdJob() uint64 {
+	if x != nil {
+		return x.IdJob
+	}
+	return 0
+}
+
+func (x *UpdatedJobTransactionStatusRequest) GetTaskId() uint64 {
+	if x != nil {
+		return x.TaskId
+	}
+	return 0
+}
+
+func (x *UpdatedJobTransactionStatusRequest) GetStatus() StatusInquiryJob {
+	if x != nil {
+		return x.Status
+	}
+	return StatusInquiryJob_NEW
+}
+
+type UpdatedJobTransactionStatusResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Error   bool   `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
+	Code    uint32 `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *UpdatedJobTransactionStatusResponse) Reset() {
+	*x = UpdatedJobTransactionStatusResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transaction_status_payload_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdatedJobTransactionStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatedJobTransactionStatusResponse) ProtoMessage() {}
+
+func (x *UpdatedJobTransactionStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_status_payload_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatedJobTransactionStatusResponse.ProtoReflect.Descriptor instead.
+func (*UpdatedJobTransactionStatusResponse) Descriptor() ([]byte, []int) {
+	return file_transaction_status_payload_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdatedJobTransactionStatusResponse) GetError() bool {
+	if x != nil {
+		return x.Error
+	}
+	return false
+}
+
+func (x *UpdatedJobTransactionStatusResponse) GetCode() uint32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *UpdatedJobTransactionStatusResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
 }
 
 var File_transaction_status_payload_proto protoreflect.FileDescriptor
@@ -939,82 +640,39 @@ var file_transaction_status_payload_proto_rawDesc = []byte{
 	0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x69, 0x73, 0x53, 0x69, 0x67, 0x6e, 0x65, 0x72, 0x12,
 	0x1e, 0x0a, 0x0a, 0x69, 0x73, 0x52, 0x65, 0x6c, 0x65, 0x61, 0x73, 0x65, 0x72, 0x18, 0x04, 0x20,
 	0x01, 0x28, 0x08, 0x52, 0x0a, 0x69, 0x73, 0x52, 0x65, 0x6c, 0x65, 0x61, 0x73, 0x65, 0x72, 0x22,
-	0x82, 0x01, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61,
-	0x74, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72,
-	0x6f, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
-	0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x49, 0x0a, 0x0a, 0x70, 0x61, 0x67,
-	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29, 0x2e,
-	0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74, 0x61, 0x74,
-	0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61,
-	0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x22, 0xe6, 0x01, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54,
-	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x12, 0x3c, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x04, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x28, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e,
-	0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x52, 0x04, 0x64, 0x61,
-	0x74, 0x61, 0x12, 0x49, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63,
+	0x39, 0x0a, 0x25, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72,
+	0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x6b, 0x0a, 0x25, 0x52, 0x65,
+	0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x46, 0x0a, 0x14, 0x6d, 0x61, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x52, 0x61, 0x62, 0x62, 0x69, 0x74, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x73, 0x68, 0x12,
+	0x15, 0x0a, 0x06, 0x69, 0x64, 0x5f, 0x6a, 0x6f, 0x62, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x05, 0x69, 0x64, 0x4a, 0x6f, 0x62, 0x12, 0x17, 0x0a, 0x07, 0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69,
+	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x06, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x22,
+	0x9d, 0x01, 0x0a, 0x22, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x4a, 0x6f, 0x62, 0x54, 0x72,
+	0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x15, 0x0a, 0x06, 0x69, 0x64, 0x5f, 0x6a, 0x6f, 0x62,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x69, 0x64, 0x4a, 0x6f, 0x62, 0x12, 0x17, 0x0a,
+	0x07, 0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x06,
+	0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x12, 0x47, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2f, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63,
 	0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x5a, 0x0a,
-	0x18, 0x47, 0x65, 0x74, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x44, 0x65, 0x74, 0x61,
-	0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72, 0x6f,
-	0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70,
-	0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x74, 0x65, 0x6d, 0x70,
-	0x6c, 0x61, 0x74, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0a, 0x74,
-	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x49, 0x64, 0x22, 0x9d, 0x01, 0x0a, 0x19, 0x47, 0x65,
-	0x74, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a,
-	0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64,
-	0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x3c, 0x0a, 0x04, 0x64,
-	0x61, 0x74, 0x61, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x74, 0x72, 0x61, 0x6e,
-	0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2e, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61,
-	0x74, 0x65, 0x73, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x22, 0x7a, 0x0a, 0x13, 0x53, 0x61, 0x76,
-	0x65, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12,
-	0x44, 0x0a, 0x08, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x28, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f,
-	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x52, 0x08, 0x74, 0x65, 0x6d,
-	0x70, 0x6c, 0x61, 0x74, 0x65, 0x22, 0x7c, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x54,
-	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d,
-	0x0a, 0x0a, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x44, 0x0a,
-	0x08, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x28, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x52, 0x08, 0x74, 0x65, 0x6d, 0x70, 0x6c,
-	0x61, 0x74, 0x65, 0x22, 0x57, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x54, 0x65, 0x6d,
-	0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d, 0x0a, 0x0a,
-	0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x09, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x74,
-	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04,
-	0x52, 0x0a, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x49, 0x64, 0x22, 0x39, 0x0a, 0x25,
-	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61, 0x6e, 0x73,
-	0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x6b, 0x0a, 0x25, 0x52, 0x65, 0x67, 0x69, 0x73,
-	0x74, 0x65, 0x72, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f,
-	0x6e, 0x50, 0x65, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x22, 0x46, 0x0a, 0x14, 0x6d, 0x61, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52,
-	0x61, 0x62, 0x62, 0x69, 0x74, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x73, 0x68, 0x12, 0x15, 0x0a, 0x06,
-	0x69, 0x64, 0x5f, 0x6a, 0x6f, 0x62, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x69, 0x64,
-	0x4a, 0x6f, 0x62, 0x12, 0x17, 0x0a, 0x07, 0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69, 0x64, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x04, 0x52, 0x06, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x42, 0x06, 0x5a, 0x04,
-	0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x49, 0x6e, 0x71,
+	0x75, 0x69, 0x72, 0x79, 0x4a, 0x6f, 0x62, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22,
+	0x69, 0x0a, 0x23, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x4a, 0x6f, 0x62, 0x54, 0x72, 0x61,
+	0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04,
+	0x63, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65,
+	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f,
+	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1029,38 +687,28 @@ func file_transaction_status_payload_proto_rawDescGZIP() []byte {
 	return file_transaction_status_payload_proto_rawDescData
 }
 
-var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_transaction_status_payload_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_transaction_status_payload_proto_goTypes = []interface{}{
 	(*Pagination)(nil),                            // 0: transaction_status.service.v1.Pagination
 	(*GeneralBodyResponse)(nil),                   // 1: transaction_status.service.v1.GeneralBodyResponse
 	(*HealthCheckResponse)(nil),                   // 2: transaction_status.service.v1.HealthCheckResponse
 	(*UserAuthority)(nil),                         // 3: transaction_status.service.v1.UserAuthority
-	(*GetAllTemplatesRequest)(nil),                // 4: transaction_status.service.v1.GetAllTemplatesRequest
-	(*GetAllTemplatesResponse)(nil),               // 5: transaction_status.service.v1.GetAllTemplatesResponse
-	(*GetTemplateDetailRequest)(nil),              // 6: transaction_status.service.v1.GetTemplateDetailRequest
-	(*GetTemplateDetailResponse)(nil),             // 7: transaction_status.service.v1.GetTemplateDetailResponse
-	(*SaveTemplateRequest)(nil),                   // 8: transaction_status.service.v1.SaveTemplateRequest
-	(*UpdateTemplateRequest)(nil),                 // 9: transaction_status.service.v1.UpdateTemplateRequest
-	(*DeleteTemplateRequest)(nil),                 // 10: transaction_status.service.v1.DeleteTemplateRequest
-	(*RegisterJobTransactionPendingeRequest)(nil), // 11: transaction_status.service.v1.RegisterJobTransactionPendingeRequest
-	(*RegisterJobTransactionPendingResponse)(nil), // 12: transaction_status.service.v1.RegisterJobTransactionPendingResponse
-	(*MassageRabbitPublish)(nil),                  // 13: transaction_status.service.v1.massageRabbitPublish
-	(Direction)(0),                                // 14: transaction_status.service.v1.Direction
-	(*Templates)(nil),                             // 15: transaction_status.service.v1.Templates
+	(*RegisterJobTransactionPendingeRequest)(nil), // 4: transaction_status.service.v1.RegisterJobTransactionPendingeRequest
+	(*RegisterJobTransactionPendingResponse)(nil), // 5: transaction_status.service.v1.RegisterJobTransactionPendingResponse
+	(*MassageRabbitPublish)(nil),                  // 6: transaction_status.service.v1.massageRabbitPublish
+	(*UpdatedJobTransactionStatusRequest)(nil),    // 7: transaction_status.service.v1.UpdatedJobTransactionStatusRequest
+	(*UpdatedJobTransactionStatusResponse)(nil),   // 8: transaction_status.service.v1.UpdatedJobTransactionStatusResponse
+	(Direction)(0),                                // 9: transaction_status.service.v1.Direction
+	(StatusInquiryJob)(0),                         // 10: transaction_status.service.v1.statusInquiryJob
 }
 var file_transaction_status_payload_proto_depIdxs = []int32{
-	14, // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
-	0,  // 1: transaction_status.service.v1.GetAllTemplatesRequest.pagination:type_name -> transaction_status.service.v1.Pagination
-	15, // 2: transaction_status.service.v1.GetAllTemplatesResponse.data:type_name -> transaction_status.service.v1.Templates
-	0,  // 3: transaction_status.service.v1.GetAllTemplatesResponse.pagination:type_name -> transaction_status.service.v1.Pagination
-	15, // 4: transaction_status.service.v1.GetTemplateDetailResponse.data:type_name -> transaction_status.service.v1.Templates
-	15, // 5: transaction_status.service.v1.SaveTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
-	15, // 6: transaction_status.service.v1.UpdateTemplateRequest.template:type_name -> transaction_status.service.v1.Templates
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	9,  // 0: transaction_status.service.v1.Pagination.dir:type_name -> transaction_status.service.v1.Direction
+	10, // 1: transaction_status.service.v1.UpdatedJobTransactionStatusRequest.status:type_name -> transaction_status.service.v1.statusInquiryJob
+	2,  // [2:2] is the sub-list for method output_type
+	2,  // [2:2] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_transaction_status_payload_proto_init() }
@@ -1120,90 +768,6 @@ func file_transaction_status_payload_proto_init() {
 			}
 		}
 		file_transaction_status_payload_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetAllTemplatesRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetAllTemplatesResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetTemplateDetailRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetTemplateDetailResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SaveTemplateRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateTemplateRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteTemplateRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_transaction_status_payload_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RegisterJobTransactionPendingeRequest); i {
 			case 0:
 				return &v.state
@@ -1215,7 +779,7 @@ func file_transaction_status_payload_proto_init() {
 				return nil
 			}
 		}
-		file_transaction_status_payload_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_transaction_status_payload_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RegisterJobTransactionPendingResponse); i {
 			case 0:
 				return &v.state
@@ -1227,8 +791,32 @@ func file_transaction_status_payload_proto_init() {
 				return nil
 			}
 		}
-		file_transaction_status_payload_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_transaction_status_payload_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MassageRabbitPublish); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_transaction_status_payload_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdatedJobTransactionStatusRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_transaction_status_payload_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdatedJobTransactionStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1246,7 +834,7 @@ func file_transaction_status_payload_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_transaction_status_payload_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

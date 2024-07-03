@@ -50,68 +50,6 @@ service TransactionStatusService {
 
     // #endregion
 
-    // #region Templates
-    
-    rpc GetAllTemplates(GetAllTemplatesRequest) returns (GetAllTemplatesResponse) {
-        option (google.api.http) = {
-            post: "/api/template/data"
-            body: "*"
-        };
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            tags: ["Templates"]
-            summary: "Get template data"
-            description: "This API for get template data"
-        };
-    };
-
-    rpc GetTemplateDetail(GetTemplateDetailRequest) returns (GetTemplateDetailResponse) {
-        option (google.api.http) = {
-            post: "/api/template/data-detail"
-            body: "*"
-        };
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            tags: ["Templates"]
-            summary: "Get template data detail"
-            description: "This API for get template data detail by id"
-        };
-    };
-
-    rpc SaveTemplate(SaveTemplateRequest) returns (GeneralBodyResponse) {
-        option (google.api.http) = {
-            post: "/api/template/save-data"
-            body: "*"
-        };
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            tags: ["Templates"]
-            summary: "Save template data"
-            description: "This API for save template data"
-        };
-    };
-
-    rpc UpdateTemplate(UpdateTemplateRequest) returns (GetTemplateDetailResponse) {
-        option (google.api.http) = {
-            post: "/api/template/update-data"
-            body: "*"
-        };
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            tags: ["Templates"]
-            summary: "Update template data"
-            description: "This API for update template data"
-        };
-    };
-
-    rpc DeleteTemplate(DeleteTemplateRequest) returns (GeneralBodyResponse) {
-        option (google.api.http) = {
-            post: "/api/template/delete-data"
-            body: "*"
-        };
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            tags: ["Templates"]
-            summary: "Delete template data"
-            description: "This API for delete template data"
-        };
-    };
-
     // "this is for register job for queue to rabbit
     rpc RegisterJobTransactionPending(RegisterJobTransactionPendingeRequest) returns (RegisterJobTransactionPendingResponse) {
         option (google.api.http) = {
@@ -125,5 +63,6 @@ service TransactionStatusService {
         };
     };
 
-    // #endregion
+    rpc UpdatedJobTransactionStatus(UpdatedJobTransactionStatusRequest) returns (UpdatedJobTransactionStatusResponse) {}
+
 }

@@ -103,7 +103,7 @@ func (x *Server) JobPending() {
 				Page:   1,
 				Sort:   "updated_at",
 				Dir:    pb.Direction_ASC,
-				Filter: " status = 'NEW' and status = 'IN_PROGRESS'",
+				Filter: " (status = 'NEW' or status = 'IN_PROGRESS') and type in ('Swift')",
 			})
 
 		if err != nil {

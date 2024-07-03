@@ -1,5 +1,5 @@
 package constant
 
 const (
-	ProductName = "Template"
+	ProductName = "Transaction Status"
 )

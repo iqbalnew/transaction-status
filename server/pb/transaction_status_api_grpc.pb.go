@@ -21,12 +21,8 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	TransactionStatusService_HealthCheck_FullMethodName                   = "/transaction_status.service.v1.TransactionStatusService/HealthCheck"
-	TransactionStatusService_GetAllTemplates_FullMethodName               = "/transaction_status.service.v1.TransactionStatusService/GetAllTemplates"
-	TransactionStatusService_GetTemplateDetail_FullMethodName             = "/transaction_status.service.v1.TransactionStatusService/GetTemplateDetail"
-	TransactionStatusService_SaveTemplate_FullMethodName                  = "/transaction_status.service.v1.TransactionStatusService/SaveTemplate"
-	TransactionStatusService_UpdateTemplate_FullMethodName                = "/transaction_status.service.v1.TransactionStatusService/UpdateTemplate"
-	TransactionStatusService_DeleteTemplate_FullMethodName                = "/transaction_status.service.v1.TransactionStatusService/DeleteTemplate"
 	TransactionStatusService_RegisterJobTransactionPending_FullMethodName = "/transaction_status.service.v1.TransactionStatusService/RegisterJobTransactionPending"
+	TransactionStatusService_UpdatedJobTransactionStatus_FullMethodName   = "/transaction_status.service.v1.TransactionStatusService/UpdatedJobTransactionStatus"
 )
 
 // TransactionStatusServiceClient is the client API for TransactionStatusService service.
@@ -34,13 +30,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TransactionStatusServiceClient interface {
 	HealthCheck(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*HealthCheckResponse, error)
-	GetAllTemplates(ctx context.Context, in *GetAllTemplatesRequest, opts ...grpc.CallOption) (*GetAllTemplatesResponse, error)
-	GetTemplateDetail(ctx context.Context, in *GetTemplateDetailRequest, opts ...grpc.CallOption) (*GetTemplateDetailResponse, error)
-	SaveTemplate(ctx context.Context, in *SaveTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error)
-	UpdateTemplate(ctx context.Context, in *UpdateTemplateRequest, opts ...grpc.CallOption) (*GetTemplateDetailResponse, error)
-	DeleteTemplate(ctx context.Context, in *DeleteTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error)
 	// "this is for register job for queue to rabbit
 	RegisterJobTransactionPending(ctx context.Context, in *RegisterJobTransactionPendingeRequest, opts ...grpc.CallOption) (*RegisterJobTransactionPendingResponse, error)
+	UpdatedJobTransactionStatus(ctx context.Context, in *UpdatedJobTransactionStatusRequest, opts ...grpc.CallOption) (*UpdatedJobTransactionStatusResponse, error)
 }
 
 type transactionStatusServiceClient struct {
@@ -60,54 +52,18 @@ func (c *transactionStatusServiceClient) HealthCheck(ctx context.Context, in *em
 	return out, nil
 }
 
-func (c *transactionStatusServiceClient) GetAllTemplates(ctx context.Context, in *GetAllTemplatesRequest, opts ...grpc.CallOption) (*GetAllTemplatesResponse, error) {
-	out := new(GetAllTemplatesResponse)
-	err := c.cc.Invoke(ctx, TransactionStatusService_GetAllTemplates_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *transactionStatusServiceClient) GetTemplateDetail(ctx context.Context, in *GetTemplateDetailRequest, opts ...grpc.CallOption) (*GetTemplateDetailResponse, error) {
-	out := new(GetTemplateDetailResponse)
-	err := c.cc.Invoke(ctx, TransactionStatusService_GetTemplateDetail_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *transactionStatusServiceClient) SaveTemplate(ctx context.Context, in *SaveTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error) {
-	out := new(GeneralBodyResponse)
-	err := c.cc.Invoke(ctx, TransactionStatusService_SaveTemplate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *transactionStatusServiceClient) UpdateTemplate(ctx context.Context, in *UpdateTemplateRequest, opts ...grpc.CallOption) (*GetTemplateDetailResponse, error) {
-	out := new(GetTemplateDetailResponse)
-	err := c.cc.Invoke(ctx, TransactionStatusService_UpdateTemplate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *transactionStatusServiceClient) DeleteTemplate(ctx context.Context, in *DeleteTemplateRequest, opts ...grpc.CallOption) (*GeneralBodyResponse, error) {
-	out := new(GeneralBodyResponse)
-	err := c.cc.Invoke(ctx, TransactionStatusService_DeleteTemplate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *transactionStatusServiceClient) RegisterJobTransactionPending(ctx context.Context, in *RegisterJobTransactionPendingeRequest, opts ...grpc.CallOption) (*RegisterJobTransactionPendingResponse, error) {
 	out := new(RegisterJobTransactionPendingResponse)
 	err := c.cc.Invoke(ctx, TransactionStatusService_RegisterJobTransactionPending_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionStatusServiceClient) UpdatedJobTransactionStatus(ctx context.Context, in *UpdatedJobTransactionStatusRequest, opts ...grpc.CallOption) (*UpdatedJobTransactionStatusResponse, error) {
+	out := new(UpdatedJobTransactionStatusResponse)
+	err := c.cc.Invoke(ctx, TransactionStatusService_UpdatedJobTransactionStatus_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,13 +75,9 @@ func (c *transactionStatusServiceClient) RegisterJobTransactionPending(ctx conte
 // for forward compatibility
 type TransactionStatusServiceServer interface {
 	HealthCheck(context.Context, *emptypb.Empty) (*HealthCheckResponse, error)
-	GetAllTemplates(context.Context, *GetAllTemplatesRequest) (*GetAllTemplatesResponse, error)
-	GetTemplateDetail(context.Context, *GetTemplateDetailRequest) (*GetTemplateDetailResponse, error)
-	SaveTemplate(context.Context, *SaveTemplateRequest) (*GeneralBodyResponse, error)
-	UpdateTemplate(context.Context, *UpdateTemplateRequest) (*GetTemplateDetailResponse, error)
-	DeleteTemplate(context.Context, *DeleteTemplateRequest) (*GeneralBodyResponse, error)
 	// "this is for register job for queue to rabbit
 	RegisterJobTransactionPending(context.Context, *RegisterJobTransactionPendingeRequest) (*RegisterJobTransactionPendingResponse, error)
+	UpdatedJobTransactionStatus(context.Context, *UpdatedJobTransactionStatusRequest) (*UpdatedJobTransactionStatusResponse, error)
 	mustEmbedUnimplementedTransactionStatusServiceServer()
 }
 
@@ -136,23 +88,11 @@ type UnimplementedTransactionStatusServiceServer struct {
 func (UnimplementedTransactionStatusServiceServer) HealthCheck(context.Context, *emptypb.Empty) (*HealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
-func (UnimplementedTransactionStatusServiceServer) GetAllTemplates(context.Context, *GetAllTemplatesRequest) (*GetAllTemplatesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllTemplates not implemented")
-}
-func (UnimplementedTransactionStatusServiceServer) GetTemplateDetail(context.Context, *GetTemplateDetailRequest) (*GetTemplateDetailResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTemplateDetail not implemented")
-}
-func (UnimplementedTransactionStatusServiceServer) SaveTemplate(context.Context, *SaveTemplateRequest) (*GeneralBodyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SaveTemplate not implemented")
-}
-func (UnimplementedTransactionStatusServiceServer) UpdateTemplate(context.Context, *UpdateTemplateRequest) (*GetTemplateDetailResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateTemplate not implemented")
-}
-func (UnimplementedTransactionStatusServiceServer) DeleteTemplate(context.Context, *DeleteTemplateRequest) (*GeneralBodyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteTemplate not implemented")
-}
 func (UnimplementedTransactionStatusServiceServer) RegisterJobTransactionPending(context.Context, *RegisterJobTransactionPendingeRequest) (*RegisterJobTransactionPendingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterJobTransactionPending not implemented")
+}
+func (UnimplementedTransactionStatusServiceServer) UpdatedJobTransactionStatus(context.Context, *UpdatedJobTransactionStatusRequest) (*UpdatedJobTransactionStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatedJobTransactionStatus not implemented")
 }
 func (UnimplementedTransactionStatusServiceServer) mustEmbedUnimplementedTransactionStatusServiceServer() {
 }
@@ -186,96 +126,6 @@ func _TransactionStatusService_HealthCheck_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TransactionStatusService_GetAllTemplates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllTemplatesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransactionStatusServiceServer).GetAllTemplates(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransactionStatusService_GetAllTemplates_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransactionStatusServiceServer).GetAllTemplates(ctx, req.(*GetAllTemplatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TransactionStatusService_GetTemplateDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateDetailRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransactionStatusServiceServer).GetTemplateDetail(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransactionStatusService_GetTemplateDetail_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransactionStatusServiceServer).GetTemplateDetail(ctx, req.(*GetTemplateDetailRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TransactionStatusService_SaveTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaveTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransactionStatusServiceServer).SaveTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransactionStatusService_SaveTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransactionStatusServiceServer).SaveTemplate(ctx, req.(*SaveTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TransactionStatusService_UpdateTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransactionStatusServiceServer).UpdateTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransactionStatusService_UpdateTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransactionStatusServiceServer).UpdateTemplate(ctx, req.(*UpdateTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TransactionStatusService_DeleteTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransactionStatusServiceServer).DeleteTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransactionStatusService_DeleteTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransactionStatusServiceServer).DeleteTemplate(ctx, req.(*DeleteTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _TransactionStatusService_RegisterJobTransactionPending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterJobTransactionPendingeRequest)
 	if err := dec(in); err != nil {
@@ -294,6 +144,24 @@ func _TransactionStatusService_RegisterJobTransactionPending_Handler(srv interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TransactionStatusService_UpdatedJobTransactionStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatedJobTransactionStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionStatusServiceServer).UpdatedJobTransactionStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransactionStatusService_UpdatedJobTransactionStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionStatusServiceServer).UpdatedJobTransactionStatus(ctx, req.(*UpdatedJobTransactionStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TransactionStatusService_ServiceDesc is the grpc.ServiceDesc for TransactionStatusService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -306,28 +174,12 @@ var TransactionStatusService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TransactionStatusService_HealthCheck_Handler,
 		},
 		{
-			MethodName: "GetAllTemplates",
-			Handler:    _TransactionStatusService_GetAllTemplates_Handler,
-		},
-		{
-			MethodName: "GetTemplateDetail",
-			Handler:    _TransactionStatusService_GetTemplateDetail_Handler,
-		},
-		{
-			MethodName: "SaveTemplate",
-			Handler:    _TransactionStatusService_SaveTemplate_Handler,
-		},
-		{
-			MethodName: "UpdateTemplate",
-			Handler:    _TransactionStatusService_UpdateTemplate_Handler,
-		},
-		{
-			MethodName: "DeleteTemplate",
-			Handler:    _TransactionStatusService_DeleteTemplate_Handler,
-		},
-		{
 			MethodName: "RegisterJobTransactionPending",
 			Handler:    _TransactionStatusService_RegisterJobTransactionPending_Handler,
+		},
+		{
+			MethodName: "UpdatedJobTransactionStatus",
+			Handler:    _TransactionStatusService_UpdatedJobTransactionStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

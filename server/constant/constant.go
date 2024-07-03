@@ -1,5 +1,5 @@
 package constant
 
 const (
-	ServiceName = "Template"
+	ServiceName = "Transaction_Status"
 )
